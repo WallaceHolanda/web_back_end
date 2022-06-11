@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect 
 from django.template import loader
+from django.urls import reverse
 from .models import Clientes
 
 def index(request):
@@ -11,8 +12,16 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-
 def adicionar(request):
     template = loader.get_template('adicionar.html')
     return HttpResponse(template.render({}, request))
-# Create your views here.
+
+def addcliente(request):
+  cli_nome = request.POST['nome']
+  cli_cpf = request.POST['cpf']
+  cli_nascimento = request.POST['nascimento']
+  cli_email = request.POST['email']
+  cli_senha = request.POST['senha']
+  cliente = Clientes(nome=cli_nome, cpf=cli_cpf, nascimento=cli_nascimento, email=cli_email, senha=cli_senha)
+  cliente.save()
+  return HttpResponseRedirect(reverse('index'))
