@@ -11,4 +11,8 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+
+def adicionar(request):
+    template = loader.get_template('adicionar.html')
+    return HttpResponse(template.render({}, request))
 # Create your views here.
