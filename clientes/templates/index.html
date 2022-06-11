@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 #clientes {
   font-family: Arial, Helvetica, sans-serif;
@@ -31,14 +33,16 @@
 <td>Nascimento</td>
 <td>CPF</td>
 <td>E-mail</td>
+<td>Ações</td>
 </tr>
 {% for cliente in listaClientes %}
 <tr>
-<td>{{ cliente.id }}</td>
+<td>{{ cliente.id }} </td>
 <td>{{ cliente.nome }}</td>
 <td>{{ cliente.nascimento }}</td>
 <td>{{ cliente.cpf }}</td>
 <td>{{ cliente.email }}</td>
+<td><a href="apagar/{{ cliente.id }}"><i class="fa fa-trash"></i></a></td>
 </tr>
 {% endfor %}
 <p><a href="adicionar/">Adicionar membro</a></p>

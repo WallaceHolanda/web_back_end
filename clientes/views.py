@@ -25,3 +25,8 @@ def addcliente(request):
   cliente = Clientes(nome=cli_nome, cpf=cli_cpf, nascimento=cli_nascimento, email=cli_email, senha=cli_senha)
   cliente.save()
   return HttpResponseRedirect(reverse('index'))
+
+def apagar(request, id):
+  cliente = Clientes.objects.get(id=id)
+  cliente.delete()
+  return HttpResponseRedirect(reverse('index'))
