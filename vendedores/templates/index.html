@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+#vendedores {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#vendedores td, #vendedores th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#vendedores tr:nth-child(even){background-color: #f2f2f2;}
+
+#vendedores tr:hover {background-color: #ddd;}
+
+#vendedores th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+<h1>Vendedores</h1>
+<table id="vendedores" border="1">
+<tr>
+<td>ID</td>
+<td>Nome</td>
+<td>CPNJ ou CPF</td>
+<td>Endereço</td>
+<td>Telefone</td>
+<td>Banco</td>
+<td>Conta<td>
+<td>E-mail</td>
+<td></td>
+</tr>
+{% for vendedor in listaVendedores %}
+<tr>
+<td>{{ vendedor.id }} </td>
+<td>{{ vendedor.nome }}</td>
+<td>{{ vendedor.documento }}</td>
+<td>{{ vendedor.endereco }}</td>
+<td>{{ vendedor.telefone }}</td>
+<td>{{ vendedor.banco }}</td>
+<td>{{ vendedor.conta }}</td>
+<td>{{ vendedor.email }}</td>
+</tr>
+{% endfor %}
+</table>
