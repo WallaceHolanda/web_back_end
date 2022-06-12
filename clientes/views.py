@@ -30,3 +30,26 @@ def apagar(request, id):
   cliente = Clientes.objects.get(id=id)
   cliente.delete()
   return HttpResponseRedirect(reverse('index'))
+
+def editar(request, id):
+  cliente = Clientes.objects.get(id=id)
+  template = loader.get_template('editar.html')
+  context = {
+    'cliente': cliente,
+  }
+  return HttpResponse(template.render(context, request))
+
+def editarcliente(request, id):
+  nome = request.POST['nome']
+  cpf = request.POST['cpf']
+  nascimento = request.POST['nascimento']
+  email = request.POST['email']
+  senha = request.POST['senha']
+  cliente = Clientes.objects.get(id=id)
+  cliente.nome = nome
+  cliente.cpf = cpf
+  cliente.nascimento = nascimento
+  cliente.email = email
+  cliente.senha = senha
+  cliente.save()
+  return HttpResponseRedirect(reverse('index'))

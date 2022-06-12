@@ -42,7 +42,11 @@
 <td>{{ cliente.nascimento }}</td>
 <td>{{ cliente.cpf }}</td>
 <td>{{ cliente.email }}</td>
-<td><a href="apagar/{{ cliente.id }}"><i class="fa fa-trash"></i></a></td>
+<td>
+<a href="apagar/{{ cliente.id }}"><i class="fa fa-trash"></i></a>
+<a href="editar/{{ cliente.id }}"><i class="fa fa-edit"></i></a>
+</td>
+
 </tr>
 {% endfor %}
 <p><a href="adicionar/">Adicionar membro</a></p>
