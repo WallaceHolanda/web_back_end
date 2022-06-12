@@ -64,6 +64,9 @@ a {
 <td>{{ vendedor.endereco }}</td>
 <td>{{ vendedor.telefone }}</td>
 <td>{{ vendedor.email }}</td>
+<td>
+<a href="apagarvendedor/{{ vendedor.id }}"><i class="fa fa-trash"></i></a>
+</td>
 </tr>
 {% endfor %}
 </table>

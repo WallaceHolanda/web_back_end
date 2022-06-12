@@ -4,7 +4,7 @@ from django.template import loader
 from django.urls import reverse
 from .models import Vendedores
 
-def index(request):
+def indexvendedor(request):
   listaVendedores = Vendedores.objects.all().values()
   template = loader.get_template('indexVendedores.html')
   context = {
@@ -27,4 +27,9 @@ def addvendedor(request):
   vend_senha = request.POST['senha']
   vendedor = Vendedores(nome=vend_nome, documento=vend_documento, endereco=vend_endereco, telefone=vend_telefone, banco=vend_banco, conta=vend_conta, email=vend_email, senha=vend_senha)
   vendedor.save()
-  return HttpResponseRedirect(reverse('index'))
+  return HttpResponseRedirect(reverse('indexvendedor'))
+
+def apagarvendedor(request, id):
+  vendedor = Vendedores.objects.get(id=id)
+  vendedor.delete()
+  return HttpResponseRedirect(reverse('indexvendedor'))
