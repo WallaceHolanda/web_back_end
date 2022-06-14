@@ -33,3 +33,32 @@ def apagarvendedor(request, id):
   vendedor = Vendedores.objects.get(id=id)
   vendedor.delete()
   return HttpResponseRedirect(reverse('indexvendedor'))
+
+def editar(request, id):
+  vendedor = Vendedores.objects.get(id=id)
+  template = loader.get_template('editarVendedor.html')
+  context = {
+    'vendedor': vendedor,
+  }
+  return HttpResponse(template.render(context, request))
+
+def editarvendedor(request, id):
+  nome = request.POST['nome']
+  documento = request.POST['documento']
+  endereco = request.POST['endereco']
+  telefone = request.POST['telefone']
+  banco = request.POST['banco']
+  conta = request.POST['conta']
+  email = request.POST['email']
+  senha = request.POST['senha']
+  vendedor = Vendedores.objects.get(id=id)
+  vendedor.nome = nome
+  vendedor.documento = documento
+  vendedor.endereco = endereco
+  vendedor.telefone = telefone
+  vendedor.banco = banco
+  vendedor.conta = conta
+  vendedor.email = email
+  vendedor.senha = senha
+  vendedor.save()
+  return HttpResponseRedirect(reverse('indexvendedor'))

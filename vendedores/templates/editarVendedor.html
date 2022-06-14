@@ -1,0 +1,66 @@
+<style>
+input, select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  display: block;
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<h2>Editar Vendedor</h2>
+<div>
+<form action="editarvendedor/{{ vendedor.id }}" method="post">
+{% csrf_token %}
+
+<label>Nome: </label>
+<input type="text" name="nome" value="{{ vendedor.nome }}">
+
+<label>CNPJ ou CPF: </label>
+<input type="text" name="documento" value="{{ vendedor.documento }}">
+
+<label>Endereço: </label>
+<input type="text" name="endereco" value="{{ vendedor.endereco  }}">
+
+<label>Telefone: </label>
+<input type="phone" name="telefone" value="{{ vendedor.telefone  }}">
+
+<label>Banco: </label>
+<input type="text" name="banco" value="{{ vendedor.banco  }}">
+
+<label>Número da Conta: </label>
+<input type="text" name="conta" value="{{ vendedor.conta  }}">
+
+<label>E-mail: </label>
+<input type="email" name="email" value="{{ vendedor.email }}">
+
+<label>Senha: </label>
+<input type="password" name="senha" value="{{ vendedor.senha }}">
+
+<input type="submit" value="Editar">
+</form>
+</div>
