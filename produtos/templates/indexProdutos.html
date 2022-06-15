@@ -1,3 +1,4 @@
+{% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
@@ -59,8 +60,8 @@ a {
 {% for produto in listaProdutos %}
 <tr>
 <td>{{ produto.id }} </td>
-{% load static %}
-<td><img src="{% static produto.imagem  %}" alt="Imagem do Produto"/></td>
+
+<td><img src="{% static '' %}" alt="Imagem do Produto"/></td>
 
 <td>{{ produto.nome }}</td>
 <td>{{ produto.vendedor }}</td>
