@@ -53,6 +53,7 @@ a {
 <td>Nome</td>
 <td>Vendedor</td>
 <td>Valor</td>
+<td>Ações</td>
 </tr>
 
 {% for produtos in listaProdutos %}
@@ -62,6 +63,9 @@ a {
 <td>{{ produtos.nome }}</td>
 <td>{{ produtos.vendedor }}</td>
 <td>{{ produtos.valor }}</td>
+<td>
+    <a href="apagarproduto/{{ produto.id }}"><i class="fa fa-trash"></i></a>
+</td>
 </tr>
 {% endfor %}
 </table>

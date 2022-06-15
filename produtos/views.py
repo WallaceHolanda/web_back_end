@@ -21,7 +21,11 @@ def addproduto(request):
   prod_vendedor = request.POST['vendedor']
   prod_valor = request.POST['valor']
   prod_imagem = request.POST['imagem']
-
   produto = Produtos(nome=prod_nome, valor=prod_valor, imagem=prod_imagem, vendedor=prod_vendedor)
   produto.save()
+  return HttpResponseRedirect(reverse('indexproduto'))
+
+def apagarproduto(request, id):
+  produto = Produtos.objects.get(id=id)
+  produto.delete()
   return HttpResponseRedirect(reverse('indexproduto'))
