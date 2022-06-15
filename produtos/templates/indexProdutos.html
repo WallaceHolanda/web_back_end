@@ -21,7 +21,7 @@ h2 {
 
 .container {
   padding: 2px 16px;
-}
+	}
 
 img {
   display: block;
@@ -37,11 +37,15 @@ a {
 
 #botao {
   display: block;
-  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  text-align: center;
+  width: 70%;
+  padding: 5% 10%;
   background-color: #4CAF50;
   color: white;
-  padding: 14px 25px;
-  margin: 12px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -62,7 +66,7 @@ a {
   <div class="container">
     <h4><b>{{ produto.nome }}</b></h4> 
     <p>{{ produto.vendedor }}</p> 
-    <p>{{ produto.valor }}</p>
+    <p>R$ {{ produto.valor }}</p>
     <div class="acoes">
       <a href="apagarproduto/{{ produto.id }}"><i class="fa fa-trash"></i></a>
       <a href="editar/{{ produto.id }}"><i class="fa fa-edit"></i></a> 
@@ -72,4 +76,8 @@ a {
 
 {% endfor %}
 
-
+<div class="card"> 
+   <div class="container">
+     <a id="botao" href="adicionar/">Adicionar Produto</a>
+   </div>
+</div>
