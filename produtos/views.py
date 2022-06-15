@@ -29,3 +29,25 @@ def apagarproduto(request, id):
   produto = Produtos.objects.get(id=id)
   produto.delete()
   return HttpResponseRedirect(reverse('indexproduto'))
+
+def editar(request, id):
+  produto = Produtos.objects.get(id=id)
+  template = loader.get_template('editarProduto.html')
+  context = {
+    'produto': produto,
+  }
+  return HttpResponse(template.render(context, request))
+
+def editarproduto(request, id):
+  nome = request.POST['nome']
+  vendedor = request.POST['vendedor']
+  valor = request.POST['valor']
+  imagem = request.POST['imagem']
+
+  produto = Produtos.objects.get(id=id)
+  produto.nome = nome
+  produto.vendedor = vendedor
+  produto.valor = valor
+  produto.imagem = imagem
+  produto.save()
+  return HttpResponseRedirect(reverse('indexproduto'))
