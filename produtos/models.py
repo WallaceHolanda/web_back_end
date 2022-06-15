@@ -1,5 +1,4 @@
 from django.db import models
-
 class Produtos(models.Model):
   nome = models.CharField(max_length=100)
   vendedor = models.CharField(max_length=255)
