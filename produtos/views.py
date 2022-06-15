@@ -9,3 +9,17 @@ def indexproduto(request):
     'listaProdutos': listaProdutos,
   }
   return HttpResponse(template.render(context, request))
+
+def adicionar(request):
+  template = loader.get_template('adicionarProduto.html')
+  return HttpResponse(template.render({}, request))
+
+def addproduto(request):
+  prod_nome = request.POST['nome']
+  prod_vendedor = request.POST['vendedor']
+  prod_valor = request.POST['valor']
+  prod_imagem = request.POST['imagem']
+
+  produto = Produtos(nome=prod_nome, valor=prod_valor, imagem=prod_imagem, vendedor=prod_vendedor)
+  produto.save()
+  return HttpResponseRedirect(reverse('indexproduto'))

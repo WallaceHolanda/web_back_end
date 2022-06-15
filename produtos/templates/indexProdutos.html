@@ -52,7 +52,7 @@ a {
 <td>Imagem</td>
 <td>Nome</td>
 <td>Vendedor</td>
-<td>Preço</td>
+<td>Valor</td>
 </tr>
 
 {% for produtos in listaProdutos %}
@@ -61,7 +61,9 @@ a {
 <td>{{ produtos.imagem }}</td>
 <td>{{ produtos.nome }}</td>
 <td>{{ produtos.vendedor }}</td>
-<td>{{ produtos.preco }}</td>
+<td>{{ produtos.valor }}</td>
 </tr>
 {% endfor %}
 </table>
+
+<a id="botao" href="adicionar/">Adicionar Produto</a>
