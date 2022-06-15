@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 2%;
+}
+
 #clientes {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -23,9 +29,21 @@
   background-color: #04AA6D;
   color: white;
 }
+
+#botao {
+  display: block;
+  width: 150px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 25px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 </style>
 
-<h1>Clientes</h1>
+<h2>Clientes</h2>
 <table id="clientes" border="1">
 <tr>
 <td>ID</td>
@@ -49,6 +67,6 @@
 
 </tr>
 {% endfor %}
-<p><a href="adicionar/">Adicionar membro</a></p>
-
 </table>
+
+<p><a id="botao" href="adicionar/">Adicionar Cliente</a></p>
