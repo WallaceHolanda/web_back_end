@@ -56,13 +56,13 @@ a {
 <td>Ações</td>
 </tr>
 
-{% for produtos in listaProdutos %}
+{% for produto in listaProdutos %}
 <tr>
-<td>{{ produtos.id }} </td>
-<td>{{ produtos.imagem }}</td>
-<td>{{ produtos.nome }}</td>
-<td>{{ produtos.vendedor }}</td>
-<td>{{ produtos.valor }}</td>
+<td>{{ produto.id }} </td>
+<td>{{ produto.imagem }}</td>
+<td>{{ produto.nome }}</td>
+<td>{{ produto.vendedor }}</td>
+<td>{{ produto.valor }}</td>
 <td>
     <a href="apagarproduto/{{ produto.id }}"><i class="fa fa-trash"></i></a>
 </td>
