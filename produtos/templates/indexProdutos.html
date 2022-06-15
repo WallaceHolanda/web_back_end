@@ -6,27 +6,28 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#produtos {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.card {
+  float: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  margin-left: 20px;
 }
 
-#produtos td, #produtos th {
-  border: 1px solid #ddd;
-  padding: 8px;
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-#produtos tr:nth-child(even){background-color: #f2f2f2;}
+.container {
+  padding: 2px 16px;
+}
 
-#produtos tr:hover {background-color: #ddd;}
-
-#produtos th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width:50%;
 }
 
 a {
@@ -46,32 +47,20 @@ a {
 }
 </style>
 
-<h2>Lista de Produtos</h2>
-<table id="produtos" border="1">
-<tr>
-<td>ID</td>
-<td>Imagem</td>
-<td>Nome</td>
-<td>Vendedor</td>
-<td>Valor</td>
-<td>Ações</td>
-</tr>
-
 {% for produto in listaProdutos %}
-<tr>
-<td>{{ produto.id }} </td>
 
-<td><img src="{% static produto.imagem %}" alt="Imagem do Produto"/></td>
-
-<td>{{ produto.nome }}</td>
-<td>{{ produto.vendedor }}</td>
-<td>{{ produto.valor }}</td>
-<td>
+<div class="card">
+  <img src="{% static produto.imagem %}" alt="Imagem do Produto"/>
+  <div class="container">
+    <h4><b>{{ produto.nome }}</b></h4> 
+    <p>{{ produto.vendedor }}</p> 
+    <p>{{ produto.valor }}</p><br>
     <a href="apagarproduto/{{ produto.id }}"><i class="fa fa-trash"></i></a>
     <a href="editar/{{ produto.id }}"><i class="fa fa-edit"></i></a>
-</td>
-</tr>
+  </div>
+</div>
+
 {% endfor %}
-</table>
+
 
 <a id="botao" href="adicionar/">Adicionar Produto</a>
