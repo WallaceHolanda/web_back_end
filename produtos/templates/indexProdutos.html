@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#produtos {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#produtos td, #produtos th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#produtos tr:nth-child(even){background-color: #f2f2f2;}
+
+#produtos tr:hover {background-color: #ddd;}
+
+#produtos th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+a {
+  text-decoration:  none;
+}
+
+#botao {
+  display: block;
+  width: 150px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 25px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+
+<h2>Lista de Produtos</h2>
+<table id="produtos" border="1">
+<tr>
+<td>ID</td>
+<td>Imagem</td>
+<td>Nome</td>
+<td>Vendedor</td>
+<td>Preço</td>
+</tr>
+
+{% for produtos in listaProdutos %}
+<tr>
+<td>{{ produtos.id }} </td>
+<td>{{ produtos.imagem }}</td>
+<td>{{ produtos.nome }}</td>
+<td>{{ produtos.vendedor }}</td>
+<td>{{ produtos.preco }}</td>
+</tr>
+{% endfor %}
+</table>
